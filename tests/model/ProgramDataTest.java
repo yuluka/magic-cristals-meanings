@@ -12,11 +12,39 @@ class ProgramDataTest {
 		ProgramData.addStone("Cornalina", null, null, null);
 	}
 	
+	public void setupStage2() {
+		ProgramData.addStone("Obsidiana", null, null, null);
+		ProgramData.addStone("Berilio", null, null, null);
+		ProgramData.addStone("Cornalina", null, null, null);
+		ProgramData.addStone("Andesita", null, null, null);
+	}
+	
 	@Test
-	void searchTest() {
+	void searchTest1() {
 		setupStage1();
 		
-		assertTrue(ProgramData.searchStoneThread("Cornalina"));
+		assertTrue(ProgramData.searchStone("Amatista"));
 	}
 
+	@Test
+	void searchTest2() {
+		setupStage1();
+		
+		assertTrue(ProgramData.searchStone("Berilio"));
+	}
+	
+	@Test
+	void searchTest3() {
+		setupStage1();
+		
+		assertTrue(ProgramData.searchStone("Cornalina"));
+	}
+	
+	@Test
+	void sortTest1() {
+		setupStage2();
+		
+		assertEquals("Andesita", ProgramData.getStones().get(0).getName());
+	}
+	
 }

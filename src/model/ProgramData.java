@@ -1,11 +1,12 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ProgramData {
 
-	private static List<Stone> stones = new ArrayList<>();
+	private static ArrayList<Stone> stones = new ArrayList<>();
 	private static List<Sign> signs = new ArrayList<>();
 	
 	/**
@@ -24,7 +25,7 @@ public class ProgramData {
 	 * @param signs the new stone's "compatible" zodiac signs.
 	 */
 	public static void addStone(String name, String description, String imageURL, String signs) {
-		if(searchStoneThread(name)) {
+		if(searchStone(name)) {
 			System.out.println("La piedra ya existe");
 		} else {
 			stones.add(new Stone(name, description, imageURL, signs));
@@ -38,7 +39,7 @@ public class ProgramData {
 	 * @param stoneName the searched stone's name.
 	 * @return true if the program find the stone. False otherwise.
 	 */
-	public static boolean searchStoneThread(String stoneName) {
+	public static boolean searchStone(String stoneName) {
 		boolean result = false;
 		
 		int higherIndex = stones.size()-1;
@@ -65,7 +66,16 @@ public class ProgramData {
 	 * Sorts the list with all the stones in alphabetical order.
 	 */
 	private static void sortStones() {
-		
+		Collections.sort(stones, (A, B) -> {
+			return A.getName().compareTo(B.getName());
+		});
 	}
-	
+
+	public static ArrayList<Stone> getStones() {
+		return stones;
+	}
+
+	public static List<Sign> getSigns() {
+		return signs;
+	}
 }
