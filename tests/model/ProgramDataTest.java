@@ -23,28 +23,28 @@ class ProgramDataTest {
 	void searchTest1() {
 		setupStage1();
 		
-		assertTrue(ProgramData.searchStone("Amatista"));
+		assertNotEquals(-1, ProgramData.searchStone("Amatista"));
 	}
 
 	@Test
 	void searchTest2() {
 		setupStage1();
 		
-		assertTrue(ProgramData.searchStone("Berilio"));
+		assertNotEquals(-1, ProgramData.searchStone("Berilio"));
 	}
 	
 	@Test
 	void searchTest3() {
 		setupStage1();
 		
-		assertTrue(ProgramData.searchStone("Cornalina"));
+		assertNotEquals(-1, ProgramData.searchStone("Cornalina"));
 	}
 	
 	@Test
 	void sortTest1() {
 		setupStage2();
 		
-		assertEquals("Andesita", ProgramData.getStones().get(0).getName());
+		assertEquals("Amatista", ProgramData.getStones().get(0).getName());
 	}
-	
+
 }

@@ -1,6 +1,13 @@
 package model;
 
-public class Stone {
+import java.io.Serializable;
+
+public class Stone implements Serializable {
+	
+	/**
+	 * Idk the function og that shit.
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private String name;
 	private String description;
