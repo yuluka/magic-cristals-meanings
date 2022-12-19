@@ -1,20 +1,25 @@
 package control;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.ProgramData;
 
-public class AllCristals {
+public class AllCristals implements Initializable {
 
     @FXML
     private ImageView BTTN_BACK;
@@ -62,5 +67,19 @@ public class AllCristals {
     	Tooltip t = new Tooltip("Buscar piedra");
     	Tooltip.install(BTTN_SEARCH, t);
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		createStone();
+	}
 	
+	public void createStone() {
+		String stonePicURL = ProgramData.getStones().get(0).getImageURL();
+		Image stonePic = new Image(stonePicURL);
+		
+		ImageView stone = new ImageView(stonePic);
+		stone.setX(50);
+		stone.setY(50);
+		
+	}
 }

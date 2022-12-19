@@ -40,9 +40,10 @@ public class ProgramData implements Serializable {
 	 * @param imageURL the new stone's image URL.
 	 * @param signs the new stone's "compatible" zodiac signs.
 	 */
-	public static void addStone(String name, String description, String imageURL, String signs) {
+	public static boolean addStone(String name, String description, String imageURL, String signs) {
 		if(searchStone(name) != -1) {
 			System.out.println("La piedra ya existe");
+			return false;
 		} else {
 			stones.add(new Cristal(name, description, imageURL, signs));
 			
@@ -51,6 +52,8 @@ public class ProgramData implements Serializable {
 			sortStones();
 			
 			saveData();
+			
+			return true;
 		}
 	}
 	
@@ -162,8 +165,6 @@ public class ProgramData implements Serializable {
 				e.printStackTrace();
 			}
 		}).start();
-		
-		System.out.println("Holi");
 	}
 	
 	public static void printStones() {

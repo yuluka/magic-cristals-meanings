@@ -2,10 +2,13 @@ package control;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -21,7 +24,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.ProgramData;
 
-public class AddCristal {
+public class AddCristal implements Initializable {
 
     @FXML
     private ImageView BTTN_BACK;
@@ -78,7 +81,7 @@ public class AddCristal {
     }
 
     @FXML
-    void saveCristal(ActionEvent event) {
+    void saveCristal(ActionEvent event) throws IOException {
     	String name = TXT_CRISTAL_NAME.getText();
     	String description = TXTA_CRISTAL_DESCRIPTION.getText();
     	String signs = TXT_SIGNS.getText();
@@ -86,12 +89,19 @@ public class AddCristal {
     	if(name.isEmpty() || description.isEmpty() || signs.isEmpty()
     			|| urlPic.isEmpty()) {
     		showIncompleteInformationAlert();
-    	} else if(ProgramData.searchStone(name) == -1) {
-    		showAlreadyExistingStoneAlert();
     	} else {
-			ProgramData.addStone(name, description, description, signs);
-			
-			showCorrectCreationAlert();
+			if(!ProgramData.addStone(name, description, description, signs)) {
+	    		showAlreadyExistingStoneAlert();
+			} else {
+				showCorrectCreationAlert();
+				
+				TXT_CRISTAL_NAME.clear();
+				TXTA_CRISTAL_DESCRIPTION.clear();
+				TXT_SIGNS.clear();
+				IMG_CRISTAL_PIC.setImage(null);
+				
+				back(null);
+			}
 		}
     }
     
@@ -139,5 +149,10 @@ public class AddCristal {
     	Tooltip t = new Tooltip("Editar imagen de la piedra");
     	Tooltip.install(BTTN_EDIT_PIC, t);
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+	}
     
 }
