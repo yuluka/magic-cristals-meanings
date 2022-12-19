@@ -19,7 +19,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Button focusTraversable="false" layoutX="121.0" layoutY="554.0" mnemonicParsing="false" onAction="#saveCristal" text="Guardar">
+      <Button fx:id="BTTN_SAVE" focusTraversable="false" layoutX="121.0" layoutY="554.0" mnemonicParsing="false" onAction="#saveCristal" text="Guardar">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
@@ -50,7 +50,7 @@
             <Font size="20.0" />
          </font>
       </TextArea>
-      <TextField focusTraversable="false" layoutX="24.0" layoutY="493.0" prefHeight="44.0" prefWidth="275.0" promptText="Escriba los signos compatibles">
+      <TextField fx:id="TXT_SIGNS" focusTraversable="false" layoutX="24.0" layoutY="493.0" prefHeight="44.0" prefWidth="275.0" promptText="Escriba los signos compatibles">
          <font>
             <Font size="18.0" />
          </font>

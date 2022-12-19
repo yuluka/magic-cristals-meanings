@@ -75,7 +75,9 @@ public class ProgramData implements Serializable {
 	}
 	
 	/**
-	 * Searches for a stone by using its name.
+	 * Searches for a stone, by using its name, and returns the index
+	 * where the stone is placed. If there is not a stone with that 
+	 * name, returns -1.
 	 * 
 	 * @param stoneName the searched stone's name.
 	 * @return the index where the stone is placed. -1 if the stone doesn't exist.

@@ -15,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class MainWindow implements Initializable {
-
+	
     @FXML
     private ImageView BTTN_ADD_STONE;
 
@@ -24,7 +24,7 @@ public class MainWindow implements Initializable {
 
     @FXML
     private ImageView BTTN_SEE_STONES;
-
+    
     @FXML
     void addStone(MouseEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/add-cristal.fxml"));
@@ -46,8 +46,18 @@ public class MainWindow implements Initializable {
     }
 
     @FXML
-    void seeStones(MouseEvent event) {
-
+    void seeStones(MouseEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/all-cristals.fxml"));
+    	loader.setController(new AllCristals());
+    	Parent root = loader.load();
+    	
+    	Stage st = new Stage();
+    	Scene sc = new Scene(root);
+    	st.setScene(sc);
+    	st.show();
+    	
+    	Stage auxStage = (Stage) BTTN_SEE_STONES.getScene().getWindow();
+    	auxStage.close();
     }
 
     @FXML
