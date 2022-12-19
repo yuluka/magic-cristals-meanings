@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -10,16 +11,25 @@
          <image>
             <Image url="@../../icons/Add%20stone.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <ImageView fx:id="BTTN_SEE_STONES" fitHeight="150.0" fitWidth="200.0" layoutX="427.0" layoutY="111.0" onMouseClicked="#seeStones" onMouseMoved="#showSeeStonesTooltip" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../icons/See%20stones.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <ImageView fx:id="BTTN_SEARCH_BY_SIGN" fitHeight="150.0" fitWidth="200.0" layoutX="235.0" layoutY="111.0" onMouseClicked="#seeSigns" onMouseMoved="#showSeeSignsTooltip" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../icons/Zodiac%20sign.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </children>
 </Pane>

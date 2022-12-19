@@ -2,10 +2,10 @@ package model;
 
 import java.io.Serializable;
 
-public class Stone implements Serializable {
+public class Cristal implements Serializable {
 	
 	/**
-	 * Idk the function og that shit.
+	 * Idk the function of that shit.
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -14,7 +14,7 @@ public class Stone implements Serializable {
 	private String imageURL;
 	private String signs;
 	
-	public Stone(String name, String description, String imageURL, String signs) {
+	public Cristal(String name, String description, String imageURL, String signs) {
 		this.name = name;
 		this.description = description;
 		this.imageURL = imageURL;

@@ -21,7 +21,7 @@ public class ProgramData implements Serializable {
 	
 	private static final String DATA_FILE_PATH = "data/stones.lashni";
 	
-	private static List<Stone> stones = new ArrayList<>();
+	private static List<Cristal> stones = new ArrayList<>();
 	private static List<Sign> signs = new ArrayList<>();
 	
 	/**
@@ -44,7 +44,7 @@ public class ProgramData implements Serializable {
 		if(searchStone(name) != -1) {
 			System.out.println("La piedra ya existe");
 		} else {
-			stones.add(new Stone(name, description, imageURL, signs));
+			stones.add(new Cristal(name, description, imageURL, signs));
 			
 			System.out.println("Piedra agregada");
 			
@@ -147,7 +147,7 @@ public class ProgramData implements Serializable {
 				FileInputStream fis = new FileInputStream(file);
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				Object auxObj = ois.readObject();
-				stones = (ArrayList<Stone>) auxObj;
+				stones = (ArrayList<Cristal>) auxObj;
 				
 				ois.close();
 
@@ -170,7 +170,7 @@ public class ProgramData implements Serializable {
 		}
 	}
 	
-	public static List<Stone> getStones() {
+	public static List<Cristal> getStones() {
 		return stones;
 	}
 

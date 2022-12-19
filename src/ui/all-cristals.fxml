@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="TXT_CRISTAL_NAME" focusTraversable="false" layoutX="14.0" layoutY="14.0" prefHeight="37.0" prefWidth="569.0" promptText="Digita el nombre de la piedra que buscas">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </TextField>
+      <ImageView fx:id="BTTN_SEARCH" fitHeight="37.0" fitWidth="66.0" layoutX="546.0" layoutY="14.0" onMouseClicked="#search" onMouseMoved="#showSearchTooltip" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../icons/Search.png" />
+         </image>
+         <effect>
+            <Blend mode="BLUE" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ScrollPane fx:id="SCRLLPANE" layoutY="78.0" prefHeight="322.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <content>
+            <Pane fx:id="PANE_CRISTALS" prefHeight="322.0" prefWidth="600.0" style="-fx-background-color: white;" />
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>
